@@ -1,0 +1,26 @@
+{% extends 'home.html' %}
+
+{% block content %}
+  <h1>All Courses</h1>
+  {% courses %}
+  <!-- <table>
+    <thead>
+      <tr>
+        <th>Course ID</th>
+        <th>Course Number</th>
+        <th>Course Name</th>
+        <th>Term</th>
+      </tr>
+    </thead>
+    <tbody> -->
+      {% for course in courses.courses %}
+        <tr>
+          <td>{{ course.course_id }}</td>
+          <td>{{ course.course_number }}</td>
+          <td>{{ course.course_name }}</td>
+          <td>{{ course.term }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

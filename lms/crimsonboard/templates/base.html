@@ -1,27 +1,34 @@
+{% load static %}
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>{% block title %}Hi, Welcome to CrimsonBoard{% endblock %}</title>
+    <meta charset="UTF-8">
+    <title>{% block title %} Welcome to CrimsonBoard {% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-  <header>
-    <h1>CrimsonBoard Login</h1>
-    {% if user.is_authenticated %}
-      Hi {{ user.username }}!
-      <a href="{% url 'logout' %}">log out</a>
-    {% else %}
-      <a href="{% url 'login' %}">Log In</a>
-    {% endif %}
+    <h1>Welcome to CrimsonBoard</h1>
+    <div>
+      <nav>
+          <ul>
+              <li><a href="/home">Home</a></li>
+              {% if user.is_authenticated %}
+                  Hi {{ user.username }}!
+                  <li><a href="/logout">Logout</a></li>
+              {% else %}
+                  <li><a href="/login">Login</a></li>
+                  <li><a href="/register">Register</a></li>
+              {% endif %}
+          </ul>
+      </nav>
+      
+      <div class="container">
+          {% block content %}
+          {% endblock %}
+      </div>
 
-    <h1>CrimsonBoard Sign Up</h1>
-      <a href="{% url 'signup' %}">Sign Up</a>
-  </header>
-  <hr>
-  <main>
-    {% block content %}
-    {% endblock %}
-  </main>
-  <hr>
+      <script src="{% static 'js/main.js' %}"></script>
+    </div>
 </body>
 </html>

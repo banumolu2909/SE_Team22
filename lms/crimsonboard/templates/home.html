@@ -1,0 +1,62 @@
+{% block content %}
+  <h1>Welcome to CrimsonBoard</h1>
+
+  {% if user.is_authenticated %}
+  Hi {{ user.username }}! 
+
+  <div class="row">
+    <div class="col-md-6">
+      {% csrf_token %}
+        <form method="get" action="/api/browseCourses/">
+            <button type='submit'>Browse Courses</button>
+        </form>
+    </div>
+
+    <div class="col-md-6">
+      {% csrf_token %}
+        <form method="get" action="/api/viewEnrollments/">
+            <button type='submit'>View My Enrollments</button>
+        </form>
+    </div>
+
+    <div class="col-md-6">
+      <!-- <a href="/api/profile" class="btn btn-primary">Profile</a> -->
+      <form method="get" action="/api/profile">
+        <button type='submit'>Profile</button>
+
+    </form>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+        <a href="/logout">Logout</a>
+    </div>
+  </div>
+  {% else %}
+        <a href="/login">Login</a>
+        <a href="/register">Register</a>
+  {% endif %}
+<!-- 
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Button Name</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for row in table_data %}
+            <tr>
+              <td>{{ row.button_name }}</td>
+              <td><a href="{{ row.button_action }}" class="btn btn-primary">{{ row.button_label }}</a></td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div> -->
+
+{% endblock %}

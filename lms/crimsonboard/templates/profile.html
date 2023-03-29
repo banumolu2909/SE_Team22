@@ -1,7 +1,35 @@
-{% block title %}Login Successful{% endblock %}
+{% if user.is_authenticated %}
+Hi {{user.first_name}} {{user.last_name}} &nbsp;<br>
+Email: {{user.email}}
 
-{% block content %}
-  <h2>Login Successful</h2>
-{% endblock %}
-Hi {{ user.username }}!
-      <a href="{% url 'logout' %}">log out</a>
+<div class="row">
+  <div class="col-md-6">
+    <form method="get" action="/api/home">
+        <button type='submit'>Home</button>
+    </form>
+  </div>
+
+  <div class="col-md-6">
+    {% csrf_token %}
+      <form method="get" action="/api/browseCourses/">
+          <button type='submit'>Browse Courses</button>
+      </form>
+
+    <div class="col-md-6">
+      {% csrf_token %}
+        <form method="get" action="/api/viewEnrollments/">
+            <button type='submit'>View My Enrollments</button>
+        </form>
+    </div>
+
+  </div>
+  <div class="col-md-6">
+    <!-- <a href="/api/profile" class="btn btn-primary">Profile</a> -->
+    <form method="get" action="/api/profile">
+      <button type='submit'>Profile</button>
+
+
+{% else %}
+<a href="/login">Login</a>
+<a href="/register">Register</a>
+{% endif %}
