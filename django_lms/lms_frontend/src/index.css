@@ -1,0 +1,28 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', 
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* body {
+  background-image: url("../public/Blue Shapes Quote Desktop Wallpaper.png");
+  background-size: cover;
+  color: #990000
+} */
+
+/* @font-face {
+  font-family: 'Rubik';
+  src: url('/Users/srichandanach09/django_lms/fonts/Rubik/Rubik-VariableFont_wght.ttf') format('truetype');
+}
+
+body {
+  font-family: 'Rubik', sans-serif;
+} */
